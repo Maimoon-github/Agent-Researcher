@@ -1,0 +1,33 @@
+# Core Dependencies
+requests>=2.25.0
+beautifulsoup4>=4.9.0
+urllib3>=1.26.0
+python-dateutil>=2.8.0
+tldextract>=3.1.0
+PyYAML>=5.4.0
+
+# Optional but Recommended
+# For enhanced NLP capabilities
+spacy>=3.0.0
+
+# For advanced text processing
+scikit-learn>=0.24.0
+
+# For Wayback Machine access
+wayback>=0.4.0
+
+# For article extraction
+newspaper3k>=0.2.8
+
+# For language detection
+langdetect>=1.0.9
+
+# For date extraction
+datefinder>=0.7.1
+
+# Development Dependencies
+pytest>=6.2.0
+pytest-cov>=2.12.0
+black>=21.5b1
+flake8>=3.9.0
+mypy>=0.910

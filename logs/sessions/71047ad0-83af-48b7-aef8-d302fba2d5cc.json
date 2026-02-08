@@ -1,0 +1,202 @@
+{
+  "summary": {
+    "session_id": "71047ad0-83af-48b7-aef8-d302fba2d5cc",
+    "query": "Test Query",
+    "started_at": "2026-02-07T20:40:38.580936",
+    "completed_at": "2026-02-07T20:45:15.498807",
+    "outcome": {
+      "approved": true,
+      "output_path": "output\\documents\\research_20260207_204444_114a48cd-0977-4c5f-b0c6-47609fbea130.md",
+      "quality_score": 0.7100000000000001
+    },
+    "pipeline": {
+      "total_time_ms": 276495,
+      "nodes_executed": 11,
+      "successes": 8,
+      "failures": 3,
+      "success_rate": 0.7272727272727273
+    },
+    "data": {
+      "sources_discovered": 2,
+      "raw_items": 0,
+      "validated_items": 0,
+      "chunks_created": 0,
+      "knowledge_extracted": 0,
+      "indexed_count": 0
+    },
+    "llm": {
+      "current_model": "llama3.1:8b",
+      "model_switches": 0,
+      "total_calls": 0,
+      "total_tokens": 0
+    },
+    "errors_count": 3,
+    "warnings_count": 0
+  },
+  "node_results": [
+    {
+      "node_name": "source_discovery",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 27660,
+      "timestamp": "2026-02-07 20:41:06.622336",
+      "retry_count": 0
+    },
+    {
+      "node_name": "file_loader",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:41:06.636781",
+      "retry_count": 0
+    },
+    {
+      "node_name": "web_scraper",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:41:06.637589",
+      "retry_count": 0
+    },
+    {
+      "node_name": "data_validator",
+      "status": "failed",
+      "data": null,
+      "error": "Input validation failed: No raw data to validate",
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:41:06.638423",
+      "retry_count": 0
+    },
+    {
+      "node_name": "data_cleaning",
+      "status": "failed",
+      "data": null,
+      "error": "Input validation failed: No validated data to clean",
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:41:06.639613",
+      "retry_count": 0
+    },
+    {
+      "node_name": "llm_analysis",
+      "status": "failed",
+      "data": null,
+      "error": "Input validation failed: No cleaned chunks for analysis",
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:41:06.640314",
+      "retry_count": 0
+    },
+    {
+      "node_name": "semantic_indexing",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:41:06.641076",
+      "retry_count": 0
+    },
+    {
+      "node_name": "content_assembly",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 217450,
+      "timestamp": "2026-02-07 20:44:44.091771",
+      "retry_count": 0
+    },
+    {
+      "node_name": "template_engine",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 6,
+      "timestamp": "2026-02-07 20:44:44.099696",
+      "retry_count": 0
+    },
+    {
+      "node_name": "formatting",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 1,
+      "timestamp": "2026-02-07 20:44:44.102319",
+      "retry_count": 0
+    },
+    {
+      "node_name": "quality_review",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 31378,
+      "timestamp": "2026-02-07 20:45:15.481530",
+      "retry_count": 0
+    },
+    {
+      "node_name": "metrics_collector",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 11,
+      "timestamp": "2026-02-07 20:45:15.494849",
+      "retry_count": 0
+    },
+    {
+      "node_name": "improvement_analyzer",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:45:15.496527",
+      "retry_count": 0
+    },
+    {
+      "node_name": "kb_updater",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:45:15.497695",
+      "retry_count": 0
+    }
+  ],
+  "errors": [
+    "[data_validator] Input validation failed: No raw data to validate",
+    "[data_cleaning] Input validation failed: No validated data to clean",
+    "[llm_analysis] Input validation failed: No cleaned chunks for analysis"
+  ],
+  "warnings": [],
+  "improvements": [
+    {
+      "type": "reliability",
+      "issue": "Low success rate: 72.7%",
+      "suggestion": "Review error logs and add more robust error handling",
+      "priority": "high"
+    },
+    {
+      "type": "performance",
+      "issue": "Slow node: content_assembly (avg 217450ms)",
+      "suggestion": "Optimize content_assembly or add caching",
+      "priority": "medium"
+    },
+    {
+      "type": "performance",
+      "issue": "Slow node: quality_review (avg 31378ms)",
+      "suggestion": "Optimize quality_review or add caching",
+      "priority": "medium"
+    },
+    {
+      "type": "quality",
+      "issue": "Many quality issues: 4",
+      "suggestion": "Review and address common quality issues",
+      "priority": "high"
+    },
+    {
+      "type": "validation",
+      "issue": "Many validation failures (3)",
+      "suggestion": "Review validation rules or improve data quality upstream",
+      "priority": "medium"
+    }
+  ]
+}

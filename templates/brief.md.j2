@@ -1,0 +1,9 @@
+# {{ title }}
+
+{{ metadata.created_at }}
+
+{% for section in sections %}
+### {{ section.heading }}
+{{ section.content }}
+
+{% endfor %}

@@ -1,0 +1,84 @@
+# Agent Researcher Configuration
+
+system:
+  name: "Agent Researcher"
+  version: "0.1.0"
+  log_level: "INFO"
+  data_dir: "./data"
+  output_dir: "./output"
+
+# LLM Configuration with Model Fallback
+llm:
+  primary_model: "llama3.1:8b"
+  fallback_models:
+    - "qwen3:4b"
+    - "qwen2.5-coder:7b"
+  ollama_base_url: "http://localhost:11434"
+  temperature: 0.7
+  max_tokens: 4096
+  timeout: 120
+  # Token limits for model switching
+  token_limits:
+    input_warning: 6000
+    input_max: 8000
+    output_max: 4096
+
+# Embedding Model
+embeddings:
+  model: "nomic-embed-text"
+  dimensions: 768
+
+# Data Collection
+scraping:
+  max_concurrent: 3
+  rate_limit_delay: 2.0
+  timeout: 30
+  max_retries: 3
+  respect_robots_txt: true
+  user_agent: "AgentResearcher/0.1 (Research Bot)"
+
+# Storage Configuration
+storage:
+  vector_db:
+    type: "chromadb"
+    persist_directory: "./data/chroma"
+    collection_name: "research_knowledge"
+  metadata_db:
+    type: "sqlite"
+    path: "./data/metadata.db"
+
+# Document Generation
+documents:
+  default_format: "markdown"
+  supported_formats:
+    - "markdown"
+    - "pdf"
+    - "docx"
+  templates_dir: "./templates"
+  output_dir: "./output/documents"
+
+# Quality Thresholds
+quality:
+  min_confidence_score: 0.7
+  min_source_credibility: 0.6
+  max_revision_attempts: 3
+  fact_check_enabled: true
+
+# Monitoring
+monitoring:
+  metrics_enabled: true
+  prometheus_port: 9090
+  log_file: "./logs/agent_researcher.log"
+  log_rotation: "10 MB"
+
+# Scheduling
+scheduling:
+  knowledge_refresh_interval: 3600  # seconds
+  metrics_collection_interval: 60
+  cleanup_interval: 86400
+
+# Error Handling
+error_handling:
+  max_retries: 3
+  exponential_backoff_base: 2
+  max_backoff_seconds: 60

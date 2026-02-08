@@ -1,0 +1,196 @@
+{
+  "summary": {
+    "session_id": "823844cd-b1cf-4b3f-a151-7710fd06464e",
+    "query": "What are the key principles of effective software architecture design?",
+    "started_at": "2026-02-07T20:19:05.456070",
+    "completed_at": "2026-02-07T20:20:31.503355",
+    "outcome": {
+      "approved": true,
+      "output_path": "output\\documents\\research_20260207_202019_e166353e-09c1-41bf-b2f8-546e32b63493.md",
+      "quality_score": 0.8300000000000001
+    },
+    "pipeline": {
+      "total_time_ms": 85710,
+      "nodes_executed": 11,
+      "successes": 8,
+      "failures": 3,
+      "success_rate": 0.7272727272727273
+    },
+    "data": {
+      "sources_discovered": 2,
+      "raw_items": 0,
+      "validated_items": 0,
+      "chunks_created": 0,
+      "knowledge_extracted": 0,
+      "indexed_count": 0
+    },
+    "llm": {
+      "current_model": "llama3.1:8b",
+      "model_switches": 0,
+      "total_calls": 0,
+      "total_tokens": 0
+    },
+    "errors_count": 3,
+    "warnings_count": 0
+  },
+  "node_results": [
+    {
+      "node_name": "source_discovery",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 24569,
+      "timestamp": "2026-02-07 20:19:30.329026",
+      "retry_count": 0
+    },
+    {
+      "node_name": "file_loader",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:19:30.334719",
+      "retry_count": 0
+    },
+    {
+      "node_name": "web_scraper",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 7601,
+      "timestamp": "2026-02-07 20:19:37.937290",
+      "retry_count": 0
+    },
+    {
+      "node_name": "data_validator",
+      "status": "failed",
+      "data": null,
+      "error": "Input validation failed: No raw data to validate",
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:19:37.938675",
+      "retry_count": 0
+    },
+    {
+      "node_name": "data_cleaning",
+      "status": "failed",
+      "data": null,
+      "error": "Input validation failed: No validated data to clean",
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:19:37.950598",
+      "retry_count": 0
+    },
+    {
+      "node_name": "llm_analysis",
+      "status": "failed",
+      "data": null,
+      "error": "Input validation failed: No cleaned chunks for analysis",
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:19:37.951710",
+      "retry_count": 0
+    },
+    {
+      "node_name": "semantic_indexing",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:19:37.952628",
+      "retry_count": 0
+    },
+    {
+      "node_name": "content_assembly",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 41250,
+      "timestamp": "2026-02-07 20:20:19.203778",
+      "retry_count": 0
+    },
+    {
+      "node_name": "template_engine",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 18,
+      "timestamp": "2026-02-07 20:20:19.223218",
+      "retry_count": 0
+    },
+    {
+      "node_name": "formatting",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 2,
+      "timestamp": "2026-02-07 20:20:19.226449",
+      "retry_count": 0
+    },
+    {
+      "node_name": "quality_review",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 12270,
+      "timestamp": "2026-02-07 20:20:31.497602",
+      "retry_count": 0
+    },
+    {
+      "node_name": "metrics_collector",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:20:31.499656",
+      "retry_count": 0
+    },
+    {
+      "node_name": "improvement_analyzer",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:20:31.500984",
+      "retry_count": 0
+    },
+    {
+      "node_name": "kb_updater",
+      "status": "success",
+      "data": null,
+      "error": null,
+      "duration_ms": 0,
+      "timestamp": "2026-02-07 20:20:31.502264",
+      "retry_count": 0
+    }
+  ],
+  "errors": [
+    "[data_validator] Input validation failed: No raw data to validate",
+    "[data_cleaning] Input validation failed: No validated data to clean",
+    "[llm_analysis] Input validation failed: No cleaned chunks for analysis"
+  ],
+  "warnings": [],
+  "improvements": [
+    {
+      "type": "reliability",
+      "issue": "Low success rate: 72.7%",
+      "suggestion": "Review error logs and add more robust error handling",
+      "priority": "high"
+    },
+    {
+      "type": "performance",
+      "issue": "Slow node: content_assembly (avg 41250ms)",
+      "suggestion": "Optimize content_assembly or add caching",
+      "priority": "medium"
+    },
+    {
+      "type": "quality",
+      "issue": "Many quality issues: 5",
+      "suggestion": "Review and address common quality issues",
+      "priority": "high"
+    },
+    {
+      "type": "validation",
+      "issue": "Many validation failures (3)",
+      "suggestion": "Review validation rules or improve data quality upstream",
+      "priority": "medium"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+---
+# Example configuration for Source Discovery Agent
+
+source_discovery:
+  # Validation parameters
+  min_credibility_score: 0.7
+  max_urls_per_domain: 5
+  request_timeout_seconds: 10
+  user_agent: "ResearchAgent/1.0 (Compatible; ResearchBot)"
+  
+  # Source type weights
+  # Higher weights give preference to certain source types
+  source_weights:
+    academic: 1.2      # Academic sources get 20% boost
+    government: 1.3    # Government sources get 30% boost
+    news: 1.0          # News sources baseline
+    blog: 0.7          # Blog sources get 30% penalty
+    forum: 0.5         # Forum sources get 50% penalty
+    
+  # Directory scanning for local files
+  # Add paths to directories containing research documents
+  local_scan_directories:
+    - "/data/research/sources"
+    - "/home/user/documents/papers"
+    - "/mnt/shared/research"
+    
+  # Blacklists and whitelists
+  # Block specific domains from being included
+  domain_blacklist:
+    - "spam-site.com"
+    - "fake-news.org"
+    - "malicious-domain.net"
+  
+  # If whitelist is non-empty, ONLY these domains are allowed
+  domain_whitelist: []
+    # - "trusted-source.edu"
+    # - "verified-news.com"
+  
+  # Advanced features
+  enable_wayback_check: true        # Check Wayback Machine for archived versions
+  enable_cross_referencing: true    # Cross-reference sources for validation
+  cache_validation_results: true    # Cache validation results to improve performance
+  cache_ttl_hours: 24               # Cache time-to-live in hours
+  
+  # Processing limits
+  max_sources_per_type: 10          # Maximum sources to return per type
+  credibility_threshold: 0.7        # Minimum credibility score (0.0-1.0)
+  
+  # Supported file extensions for local file discovery
+  required_file_extensions:
+    - pdf
+    - md
+    - txt
+    - docx
+    - doc
+    - html
+  
+  # Language filters (ISO language codes)
+  # Leave empty to accept all languages
+  language_filters:
+    # - en    # English
+    # - es    # Spanish
+    # - fr    # French
