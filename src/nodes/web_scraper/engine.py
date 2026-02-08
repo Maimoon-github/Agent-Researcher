@@ -12,7 +12,7 @@ from collections import defaultdict
 
 from .config import get_domain_rules
 from .utils import RobotsParser, URLNormalizer, ContentCleaner, LinkAnalyzer
-from .extractors import NewspaperExtractor, ReadabilityExtractor, CustomExtractor, PDFExtractor
+from .extractors import NewspaperExtractor, ReadabilityExtractor, CustomExtractor, PDFExtractor, StructuredDataExtractor
 from .middlewares import AdaptiveRateLimiter, UserAgentMiddleware, CacheMiddleware, ProxyRotationManager
 from .pipelines import ContentPipeline, ValidationPipeline
 
@@ -75,6 +75,7 @@ class WebScraperEngine:
         self.newspaper_extractor = NewspaperExtractor()
         self.readability_extractor = ReadabilityExtractor()
         self.pdf_extractor = PDFExtractor()
+        self.structured_extractor = StructuredDataExtractor()
         
         # Initialize pipelines
         self.content_pipeline = ContentPipeline(
@@ -365,6 +366,7 @@ class WebScraperEngine:
         """
         # Strategy priority order
         strategies = [
+            ('structured_data', 0.9),
             ('custom_selectors', 0.8),
             ('newspaper3k', 0.7),
             ('readability', 0.6),
@@ -375,7 +377,12 @@ class WebScraperEngine:
             try:
                 extracted = None
                 
-                if strategy_name == 'custom_selectors' and extraction_patterns:
+                if strategy_name == 'structured_data':
+                    extracted = self.structured_extractor.extract(html, url)
+                    if extracted:
+                        extracted['parser_used'] = 'structured_data'
+
+                elif strategy_name == 'custom_selectors' and extraction_patterns:
                     custom_extractor = CustomExtractor(extraction_patterns)
                     extracted = custom_extractor.extract(html, url)
                     if extracted:
