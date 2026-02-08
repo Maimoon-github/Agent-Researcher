@@ -1,0 +1,52 @@
+web_scraper:
+  # Rate limiting
+  default_delay_seconds: 1.0
+  max_concurrent_requests: 10
+  requests_per_domain_per_minute: 30
+  
+  # Content extraction
+  extract_raw_html: false  # Save storage space
+  min_content_length_chars: 100
+  max_content_length_chars: 100000
+  preserve_structure: true  # Keep headers, lists, etc.
+  
+  # Dynamic content handling
+  use_playwright: true
+  playwright_timeout_seconds: 30
+  headless_browser: true
+  
+  # Proxy configuration
+  enable_proxy_rotation: false
+  proxy_list_file: "config/proxies.txt"
+  proxy_health_check_interval: 300
+  
+  # Caching
+  enable_caching: true
+  cache_ttl_hours: 24
+  cache_storage_path: "data/cache/web_scraper"
+  
+  # Error handling
+  max_retries: 3
+  retry_delay_seconds: 5
+  fatal_error_threshold: 0.5  # Abort batch if >50% fail
+  
+  # Link following
+  max_follow_depth: 2
+  same_domain_only: true
+  discover_new_links: true
+  
+  # User agents pool
+  user_agents:
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    - "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0"
+    - "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0"
+  
+  # Logging
+  log_level: "INFO"
+  log_file: "data/logs/scraper.log"
+  
+  # Monitoring
+  enable_metrics: true
+  metrics_export_interval: 60
