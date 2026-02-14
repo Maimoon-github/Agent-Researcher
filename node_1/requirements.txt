@@ -1,0 +1,26 @@
+# Source Discovery Agent - Requirements
+# =====================================
+
+# Core Framework Dependencies
+langgraph>=0.2.0
+langchain>=0.3.0
+pydantic>=2.0.0
+
+# Web Scraping and Parsing
+beautifulsoup4>=4.12.0
+requests>=2.31.0
+lxml>=4.9.0  # XML/HTML parser backend for BeautifulSoup
+
+# Free Web Search
+googlesearch-python>=1.2.0
+
+# Optional: LangSmith for Production Monitoring
+# Uncomment if using LangSmith for tracing
+# langsmith>=0.1.0
+
+# Development Dependencies (Optional)
+# Uncomment for development
+# pytest>=7.4.0
+# black>=23.0.0
+# mypy>=1.5.0
+# pylint>=3.0.0
